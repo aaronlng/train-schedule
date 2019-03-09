@@ -48,28 +48,28 @@ dataRef.ref().on("child_added", function(childSnapshot) {
   var time = childSnapshot.val().time;
 
   var firstTrainConverted = moment(time, "hh:mm").subtract(1, "years");
-  console.log("Current Time: " + moment(currentTime).format("hh:mm"));
+  //console.log("Current Time: " + moment(currentTime).format("hh:mm"));
 
   //find the difference between the first train time and the current time
 
   var timeDiff = moment().diff(moment(firstTrainConverted), "minutes");
-  console.log("Difference In Time: " + timeDiff);
+  //console.log("Difference In Time: " + timeDiff);
 
   //find the time apart by finding the remainder of the time difference and the frequency - use modal to get whole remainder number
 
   var timeRemainder = timeDiff % frequency;
-  console.log(timeRemainder);
+  //console.log(timeRemainder);
 
   //find the minutes until the next train
 
   var nextTrainMin = frequency - timeRemainder;
-  console.log("Minutes Till Train: " + nextTrainMin);
+  //console.log("Minutes Till Train: " + nextTrainMin);
 
   //find the time of the next train arrival
 
   var nextTrainAdd = moment().add(nextTrainMin, "minutes");
   var nextTrainArr = moment(nextTrainAdd).format("hh:mm a");
-  console.log("Arrival Time: " + nextTrainArr);
+  //console.log("Arrival Time: " + nextTrainArr);
 
   //prepend all information for train data submitted by user
 
